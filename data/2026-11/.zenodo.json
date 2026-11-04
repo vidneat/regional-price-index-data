@@ -1,0 +1,29 @@
+{
+  "upload_type": "dataset",
+  "title": "Regional Price Index: Multi-Channel Digital Subscription Prices by Country (2026.11)",
+  "description": "Local list prices of 25 digital subscriptions, games and devices (37 plan tiers) across 18 storefronts and four checkout channels (iOS App Store, Google Play, direct web, Steam), with FX-converted USD, tax- and gift-card-adjusted landed cost, IMF PPP and work-hour affordability, payment friction and a four-tier verification flag. Every row was observed on an official storefront or vendor page within 30 days of the snapshot; storefronts not yet observed are omitted, never estimated. Snapshot 2026.11.01.",
+  "creators": [
+    {
+      "name": "RegionalPriceIndex.com"
+    }
+  ],
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "version": "2026.11",
+  "publication_date": "2026-11-01",
+  "keywords": [
+    "regional pricing",
+    "app store prices",
+    "google play prices",
+    "steam prices",
+    "purchasing power parity",
+    "subscription prices"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://regionalpriceindex.com/open-data/",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

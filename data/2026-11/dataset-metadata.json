@@ -1,0 +1,150 @@
+{
+  "title": "Regional Price Index: Multi-Channel Digital Subscr",
+  "subtitle": "App Store vs Google Play vs web vs Steam prices, landed USD, PPP",
+  "description": "Local list prices of 25 digital subscriptions, games and devices (37 plan tiers) across 18 storefronts and four checkout channels (iOS App Store, Google Play, direct web, Steam), with FX-converted USD, tax- and gift-card-adjusted landed cost, IMF PPP and work-hour affordability, payment friction and a four-tier verification flag. Every row was observed on an official storefront or vendor page within 30 days of the snapshot; storefronts not yet observed are omitted, never estimated. Snapshot 2026.11.01.\n\nMethodology: https://regionalpriceindex.com/methodology/",
+  "id": "regionalpriceindex/regional-price-index",
+  "licenses": [
+    {
+      "name": "CC-BY-4.0"
+    }
+  ],
+  "keywords": [
+    "economics",
+    "finance",
+    "business",
+    "mobile and wireless"
+  ],
+  "resources": [
+    {
+      "path": "prices.csv",
+      "description": "One row per product × plan × storefront × channel × billing cycle",
+      "schema": {
+        "fields": [
+          {
+            "name": "product_slug",
+            "description": "Product identifier (URL slug)",
+            "type": "string"
+          },
+          {
+            "name": "product_name",
+            "description": "Product display name",
+            "type": "string"
+          },
+          {
+            "name": "plan_id",
+            "description": "Plan tier identifier, e.g. plus, pro, 2tb",
+            "type": "string"
+          },
+          {
+            "name": "plan_name",
+            "description": "Plan tier display name",
+            "type": "string"
+          },
+          {
+            "name": "category",
+            "description": "ai | streaming | productivity | cloud | steam | apple",
+            "type": "string"
+          },
+          {
+            "name": "billing_cycle",
+            "description": "monthly | annual | one_time",
+            "type": "string"
+          },
+          {
+            "name": "country_code",
+            "description": "ISO 3166-1 alpha-2 storefront",
+            "type": "string"
+          },
+          {
+            "name": "country_slug",
+            "description": "Country URL slug",
+            "type": "string"
+          },
+          {
+            "name": "channel",
+            "description": "ios | play | web | steam",
+            "type": "string"
+          },
+          {
+            "name": "local_price",
+            "description": "List price in the billing currency",
+            "type": "number"
+          },
+          {
+            "name": "currency",
+            "description": "ISO 4217 billing currency",
+            "type": "string"
+          },
+          {
+            "name": "fx_rate",
+            "description": "Units of currency per USD at snapshot",
+            "type": "number"
+          },
+          {
+            "name": "spot_usd",
+            "description": "local_price / fx_rate",
+            "type": "number"
+          },
+          {
+            "name": "landed_usd",
+            "description": "spot_usd × (1 + observed reseller premium) on gift-card routes with an observed listing; otherwise spot_usd. No tax added",
+            "type": "number"
+          },
+          {
+            "name": "savings_vs_us",
+            "description": "1 − landed_usd / lowest US list price (same plan and cycle)",
+            "type": "number"
+          },
+          {
+            "name": "spread_vs_us",
+            "description": "spot_usd / lowest US list price − 1",
+            "type": "number"
+          },
+          {
+            "name": "work_hours",
+            "description": "Hours of GNI per capita per month of use (or per purchase): spot / (GNI per capita / 2000)",
+            "type": "number"
+          },
+          {
+            "name": "ppp_intl_usd",
+            "description": "Local price per month of use (or per purchase) ÷ IMF implied PPP conversion rate",
+            "type": "number"
+          },
+          {
+            "name": "payment_route",
+            "description": "gift_card (official gift cards; Steam: resold wallet codes) | store_payment (no gift cards) | web_checkout (vendor checkout)",
+            "type": "string"
+          },
+          {
+            "name": "verification_tier",
+            "description": "purchase_tested | checkout_checked | source_verified | observed",
+            "type": "string"
+          },
+          {
+            "name": "is_best_channel",
+            "description": "Cheapest landed channel for this plan in this storefront",
+            "type": "boolean"
+          },
+          {
+            "name": "observed_at",
+            "description": "Date the price was observed",
+            "type": "datetime"
+          },
+          {
+            "name": "source_url",
+            "description": "Where the price was read",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "path": "countries.csv",
+      "description": "Storefront metadata: tax, gift cards, index score, IMF PPP rate, postal formats"
+    },
+    {
+      "path": "history.csv",
+      "description": "Price change log with USD value at the time"
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "profile": "tabular-data-package",
+  "name": "regional-price-index",
+  "title": "Regional Price Index: Multi-Channel Digital Subscription Prices by Country",
+  "description": "Local list prices of 25 digital subscriptions, games and devices (37 plan tiers) across 18 storefronts and four checkout channels (iOS App Store, Google Play, direct web, Steam), with FX-converted USD, tax- and gift-card-adjusted landed cost, IMF PPP and work-hour affordability, payment friction and a four-tier verification flag. Every row was observed on an official storefront or vendor page within 30 days of the snapshot; storefronts not yet observed are omitted, never estimated. Snapshot 2026.11.01.",
+  "version": "2026.11",
+  "created": "2026-11-01T02:48:41Z",
+  "homepage": "https://regionalpriceindex.com/open-data/",
+  "keywords": [
+    "regional pricing",
+    "app store prices",
+    "google play prices",
+    "steam prices",
+    "purchasing power parity",
+    "subscription prices"
+  ],
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "path": "https://creativecommons.org/licenses/by/4.0/",
+      "title": "Creative Commons Attribution 4.0"
+    }
+  ],
+  "contributors": [
+    {
+      "title": "RegionalPriceIndex.com",
+      "path": "https://regionalpriceindex.com",
+      "role": "author"
+    }
+  ],
+  "resources": [
+    {
+      "name": "prices",
+      "path": "prices.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "hash": "sha256:4bdf8f054befb0880ace7222b3825e11a23ff921e3d7c34b185b88ff38a79a31",
+      "schema": {
+        "fields": [
+          {
+            "name": "product_slug",
+            "type": "string",
+            "description": "Product identifier (URL slug)"
+          },
+          {
+            "name": "product_name",
+            "type": "string",
+            "description": "Product display name"
+          },
+          {
+            "name": "plan_id",
+            "type": "string",
+            "description": "Plan tier identifier, e.g. plus, pro, 2tb"
+          },
+          {
+            "name": "plan_name",
+            "type": "string",
+            "description": "Plan tier display name"
+          },
+          {
+            "name": "category",
+            "type": "string",
+            "description": "ai | streaming | productivity | cloud | steam | apple"
+          },
+          {
+            "name": "billing_cycle",
+            "type": "string",
+            "description": "monthly | annual | one_time"
+          },
+          {
+            "name": "country_code",
+            "type": "string",
+            "description": "ISO 3166-1 alpha-2 storefront"
+          },
+          {
+            "name": "country_slug",
+            "type": "string",
+            "description": "Country URL slug"
+          },
+          {
+            "name": "channel",
+            "type": "string",
+            "description": "ios | play | web | steam"
+          },
+          {
+            "name": "local_price",
+            "type": "number",
+            "description": "List price in the billing currency"
+          },
+          {
+            "name": "currency",
+            "type": "string",
+            "description": "ISO 4217 billing currency"
+          },
+          {
+            "name": "fx_rate",
+            "type": "number",
+            "description": "Units of currency per USD at snapshot"
+          },
+          {
+            "name": "spot_usd",
+            "type": "number",
+            "description": "local_price / fx_rate"
+          },
+          {
+            "name": "landed_usd",
+            "type": "number",
+            "description": "spot_usd × (1 + observed reseller premium) on gift-card routes with an observed listing; otherwise spot_usd. No tax added"
+          },
+          {
+            "name": "savings_vs_us",
+            "type": "number",
+            "description": "1 − landed_usd / lowest US list price (same plan and cycle)"
+          },
+          {
+            "name": "spread_vs_us",
+            "type": "number",
+            "description": "spot_usd / lowest US list price − 1"
+          },
+          {
+            "name": "work_hours",
+            "type": "number",
+            "description": "Hours of GNI per capita per month of use (or per purchase): spot / (GNI per capita / 2000)"
+          },
+          {
+            "name": "ppp_intl_usd",
+            "type": "number",
+            "description": "Local price per month of use (or per purchase) ÷ IMF implied PPP conversion rate"
+          },
+          {
+            "name": "payment_route",
+            "type": "string",
+            "description": "gift_card (official gift cards; Steam: resold wallet codes) | store_payment (no gift cards) | web_checkout (vendor checkout)"
+          },
+          {
+            "name": "verification_tier",
+            "type": "string",
+            "description": "purchase_tested | checkout_checked | source_verified | observed"
+          },
+          {
+            "name": "is_best_channel",
+            "type": "boolean",
+            "description": "Cheapest landed channel for this plan in this storefront"
+          },
+          {
+            "name": "observed_at",
+            "type": "date",
+            "description": "Date the price was observed"
+          },
+          {
+            "name": "source_url",
+            "type": "string",
+            "description": "Where the price was read"
+          }
+        ],
+        "primaryKey": [
+          "product_slug",
+          "plan_id",
+          "country_code",
+          "channel",
+          "billing_cycle"
+        ]
+      }
+    },
+    {
+      "name": "countries",
+      "path": "countries.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "hash": "sha256:4bf4cb4ffb3071cb643ccb5b6b948e4a3fc119dbd64282d16cf2bed3d26b43e1",
+      "schema": {
+        "fields": [
+          {
+            "name": "country_code",
+            "type": "string"
+          },
+          {
+            "name": "country_slug",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "currency",
+            "type": "string"
+          },
+          {
+            "name": "region",
+            "type": "string"
+          },
+          {
+            "name": "rpi_score",
+            "type": "number"
+          },
+          {
+            "name": "rank",
+            "type": "integer"
+          },
+          {
+            "name": "vat_rate",
+            "type": "number"
+          },
+          {
+            "name": "prices_include_tax",
+            "type": "boolean"
+          },
+          {
+            "name": "tax_label",
+            "type": "string"
+          },
+          {
+            "name": "gni_per_capita_usd",
+            "type": "number"
+          },
+          {
+            "name": "imf_ppp_rate",
+            "type": "number"
+          },
+          {
+            "name": "apple_gift_card",
+            "type": "boolean"
+          },
+          {
+            "name": "play_gift_card",
+            "type": "boolean"
+          },
+          {
+            "name": "steam_wallet_card",
+            "type": "boolean"
+          },
+          {
+            "name": "apple_resale_premium",
+            "type": "number"
+          },
+          {
+            "name": "play_resale_premium",
+            "type": "number"
+          },
+          {
+            "name": "steam_resale_premium",
+            "type": "number"
+          },
+          {
+            "name": "apple_payment_methods",
+            "type": "string"
+          },
+          {
+            "name": "reference_as_of",
+            "type": "date"
+          }
+        ],
+        "primaryKey": [
+          "country_code"
+        ]
+      }
+    },
+    {
+      "name": "history",
+      "path": "history.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "hash": "sha256:4e42587ccb19bf8aa9bde4264e3a927a127c95eba0c897217bae4f15f90a8afa",
+      "schema": {
+        "fields": [
+          {
+            "name": "product_slug",
+            "type": "string"
+          },
+          {
+            "name": "plan_id",
+            "type": "string"
+          },
+          {
+            "name": "country_code",
+            "type": "string"
+          },
+          {
+            "name": "channel",
+            "type": "string"
+          },
+          {
+            "name": "date",
+            "type": "date"
+          },
+          {
+            "name": "local_price",
+            "type": "number"
+          },
+          {
+            "name": "currency",
+            "type": "string"
+          },
+          {
+            "name": "usd_value",
+            "type": "number"
+          }
+        ],
+        "primaryKey": [
+          "product_slug",
+          "plan_id",
+          "country_code",
+          "channel",
+          "date"
+        ]
+      }
+    }
+  ]
+}

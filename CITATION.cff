@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+type: dataset
+title: "Regional Price Index: Multi-Channel Digital Subscription Prices by Country"
+authors:
+  - name: "RegionalPriceIndex.com"
+url: "https://regionalpriceindex.com/open-data/"
+repository-code: "https://github.com/vidneat/regional-price-index-data"
+license: CC-BY-4.0
+version: "2026.11"
+date-released: "2026-11-01"
+keywords: [regional pricing, subscription pricing, app store, price index, purchasing power parity, open data]
