@@ -7,6 +7,7 @@ authors:
 url: "https://regionalpriceindex.com/open-data/"
 repository-code: "https://github.com/vidneat/regional-price-index-data"
 license: CC-BY-4.0
+doi: "10.5281/zenodo.23959564"
 version: "2026.11"
 date-released: "2026-11-01"
 keywords: [regional pricing, subscription pricing, app store, price index, purchasing power parity, open data]

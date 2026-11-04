@@ -1,5 +1,7 @@
 # Regional Price Index: Digital Subscription Prices by Country
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23959564.svg)](https://doi.org/10.5281/zenodo.23959564)
+
 Local list prices for digital subscriptions, games and devices across 18 storefronts and four checkout channels: iOS App Store, Google Play, direct web checkout and Steam. Each price is converted to USD, with landed cost adjusted for taxes and gift cards, IMF PPP, work-hour affordability and a verification tier.
 
 Every row was observed on an official storefront or vendor page. Storefronts that haven't been observed are left out, never estimated.
@@ -23,7 +25,7 @@ New releases are published on the 1st of each month. Each GitHub release is arch
 
 ## Cite
 
-RegionalPriceIndex.com (2026). *Regional Price Index: Multi-Channel Digital Subscription Prices by Country*. https://regionalpriceindex.com/open-data/
+RegionalPriceIndex.com (2026). *Regional Price Index: Multi-Channel Digital Subscription Prices by Country*. https://regionalpriceindex.com/open-data/ · DOI [10.5281/zenodo.23959564](https://doi.org/10.5281/zenodo.23959564)
 
 ## Licence
 
